@@ -13,13 +13,8 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                 script {
-                    sh '''
-                     docker-compose up -d backend
-                     docker-compose exec backend sh -c "until nc -z localhost 5000; do sleep 1; done"
-                     docker-compose exec backend pytest
-            '''
-               }
+                sh 'docker-compose up -d backend'
+                sh 'docker-compose exec backend pytest'
             }
         }
         stage('Deploy Application') {

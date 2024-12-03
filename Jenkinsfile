@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/mohandonga201/chatting-website.git'
+                git branch: 'main', credentialsId: 'jenkins-git', url: 'https://github.com/mohandonga201/chat-app.git'
             }
         }
         stage('Build Docker Images') {

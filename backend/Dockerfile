@@ -1,6 +1,12 @@
 FROM python:3.9
+
 WORKDIR /app
 COPY . /app
-RUN pip install -r requirements.txt
-CMD ["python", "app.py"]
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Ensure pytest is installed
+RUN pip install pytest
+
 

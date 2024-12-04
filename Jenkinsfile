@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', credentialsId: 'jenkins-git', url: 'https://github.com/mohandonga201/chatting-website.git'
+                git branch: 'main', credentialsId: 'git-user-id', url: 'https://github.com/mohandonga201/chatting-website.git'
             }
         }
         stage('Build Docker Images') {
